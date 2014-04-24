@@ -1,6 +1,8 @@
 # grunt-lodash v0.3.0
 
-A Grunt wrapper around [lodash-cli](https://npmjs.org/package/lodash-cli).
+A Grunt wrapper around [lodash-cli](https://npmjs.org/package/lodash-cli). 
+
+Note: lodash-cli is a command line tool for Lo-Dash. Lo-Dash is a fork of the Underscore library. Underscore is a functional programming library for javascript. The Lo-Dash site is here: http://http://kitcambridge.be/blog/custom-builds-in-lo-dash-2-dot-0
 
 ## Getting Started
 
