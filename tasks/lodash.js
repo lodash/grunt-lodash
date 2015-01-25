@@ -16,7 +16,7 @@ module.exports = function(grunt) {
   /*--------------------------------------------------------------------------*/
 
   /** Register the task with Grunt */
-  grunt.registerMultiTask('lodash', 'Builds a customized Lo-Dash', function() {
+  grunt.registerMultiTask('lodash', 'Builds a customized lodash', function() {
     var done = this.async();
 
     var options = this.options({
@@ -49,8 +49,8 @@ module.exports = function(grunt) {
     }
     spawnArgs = spawnArgs.concat(args, flags, shortFlags, '--output', this.files[0].dest);
 
-    grunt.verbose.writeln('Lo-Dash CLI Version: ' + pkg.version);
-    grunt.verbose.writeln('Build Arguments: ' + spawnArgs.slice(1).join(' '));
+    grunt.verbose.writeln('lodash-cli version: ' + pkg.version);
+    grunt.verbose.writeln('Build arguments: ' + spawnArgs.slice(1).join(' '));
 
     grunt.util.spawn({
       'cmd': 'node',

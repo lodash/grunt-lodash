@@ -18,14 +18,6 @@ var config = module.exports = {
     'objects',
     'utilities'
   ],
-  'debugFlags': [
-    '--debug',
-    'debug'
-  ],
-  'debugShortFlags': [
-    '-d',
-    'd'
-  ],
   'exports': [
     'amd',
     'commonjs',
@@ -41,21 +33,8 @@ var config = module.exports = {
     'each',
     'value'
   ],
-  'minifyFlags': [
-    '--minify',
-    'minify'
-  ],
-  'minifyShortFlags': [
-    '-m',
-    'm'
-  ],
   'modifiers': [
-    'csp',
-    'underscore',
     'modern',
-    'backbone',
-    'legacy',
-    'mobile',
     'strict'
   ],
   'modularize': [
@@ -71,10 +50,6 @@ var config = module.exports = {
   'sourceMapFlags': [
     '--source-map',
     'source-map'
-  ],
-  'sourceMapShortFlags': [
-    '-p',
-    'p'
   ],
   'stdoutFlags': [
     '--stdout',
@@ -116,6 +91,68 @@ config.watch = {
     }
   }
 };
+
+/*----------------------------------------------------------------------------*/
+
+// flags changed between 2.x and 3.0
+// the `backbone`, `csp`, `legacy`, `mobile` and `underscore` modifiers were only available before 3.0.0
+if (semver.lt(pkg.version, '3.0.0')) {
+  config.debugFlags = [
+    '--debug',
+    'debug'
+  ];
+  config.debugShortFlags = [
+    '-d',
+    'd'
+  ];
+  config.minifyFlags = [
+    '--minify',
+    'minify'
+  ];
+  config.minifyShortFlags = [
+    '-m',
+    'm'
+  ];
+  config.sourceMapShortFlags = [
+    '-p',
+    'p'
+  ];
+  config.modifiers.push(
+    'backbone',
+    'csp',
+    'legacy',
+    'mobile',
+    'underscore'
+  );
+}
+
+// flags changed between 2.x and 3.0
+// the `compat` modifier was introduced in 3.0.0
+// the `es` export for modularize was introduced in 3.0.0
+if (semver.gte(pkg.version, '3.0.0')) {
+  config.debugFlags = [
+    '--development',
+    'development'
+  ];
+  config.debugShortFlags = [
+    '-d',
+    'd'
+  ];
+  config.minifyFlags = [
+    '--production',
+    'production'
+  ];
+  config.minifyShortFlags = [
+    '-p',
+    'p'
+  ];
+  config.sourceMapShortFlags = [
+    '-m',
+    'm'
+  ];
+  config.modifiers.push('compat');
+  config.modularize.push('es');
+}
 
 /*----------------------------------------------------------------------------*/
 

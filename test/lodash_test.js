@@ -233,6 +233,7 @@ config.stdoutShortFlags.forEach(function(flag, index) {
 
 config.debugFlags.forEach(function(flag, index) {
   var testName = 'debugFlag' + index;
+  flag = '--' + flag.replace('--', '');
   nodeunit[testName] = function(test) {
     test.expect(2);
 
@@ -243,7 +244,7 @@ config.debugFlags.forEach(function(flag, index) {
 
     var source = grunt.file.read(filePath);
 
-    test.ok(source.indexOf('lodash --debug') > -1, 'should be built with the debug flag');
+    test.ok(source.indexOf('lodash ' + flag) > -1, 'should be built with the ' + flag + ' flag');
 
     test.done();
   };
@@ -251,6 +252,7 @@ config.debugFlags.forEach(function(flag, index) {
 
 config.debugShortFlags.forEach(function(flag, index) {
   var testName = 'debugShortFlag' + index;
+  flag = '-' + flag.replace('-', '');
   nodeunit[testName] = function(test) {
     test.expect(2);
 
@@ -261,7 +263,7 @@ config.debugShortFlags.forEach(function(flag, index) {
 
     var source = grunt.file.read(filePath);
 
-    test.ok(source.indexOf('lodash -d') > -1, 'should be built with the debug flag');
+    test.ok(source.indexOf('lodash ' + flag) > -1, 'should be built with the ' + flag + ' flag');
 
     test.done();
   };
@@ -269,6 +271,7 @@ config.debugShortFlags.forEach(function(flag, index) {
 
 config.minifyFlags.forEach(function(flag, index) {
   var testName = 'minifyFlag' + index;
+  flag = '--' + flag.replace('--', '');
   nodeunit[testName] = function(test) {
     test.expect(2);
 
@@ -279,7 +282,7 @@ config.minifyFlags.forEach(function(flag, index) {
 
     var source = grunt.file.read(filePath);
 
-    test.ok(source.indexOf('lodash --minify') > -1, 'should be built with the minify flag');
+    test.ok(source.indexOf('lodash ' + flag) > -1, 'should be built with the ' + flag + ' flag');
 
     test.done();
   };
@@ -287,6 +290,7 @@ config.minifyFlags.forEach(function(flag, index) {
 
 config.minifyShortFlags.forEach(function(flag, index) {
   var testName = 'minifyShortFlag' + index;
+  flag = '-' + flag.replace('-', '');
   nodeunit[testName] = function(test) {
     test.expect(2);
 
@@ -297,7 +301,7 @@ config.minifyShortFlags.forEach(function(flag, index) {
 
     var source = grunt.file.read(filePath);
 
-    test.ok(source.indexOf('lodash -m') > -1, 'should be built with the minify flag');
+    test.ok(source.indexOf('lodash ' + flag) > -1, 'should be built with the ' + flag + ' flag');
 
     test.done();
   };
@@ -305,6 +309,7 @@ config.minifyShortFlags.forEach(function(flag, index) {
 
 config.sourceMapFlags.forEach(function(flag, index) {
   var testName = 'sourceMapFlag' + index;
+  flag = '--' + flag.replace('--', '');
   nodeunit[testName] = function(test) {
     test.expect(3);
 
@@ -315,7 +320,7 @@ config.sourceMapFlags.forEach(function(flag, index) {
 
     var source = grunt.file.read(filePath);
 
-    test.ok(source.indexOf('lodash --source-map') > -1, 'should be built with the source-map flag');
+    test.ok(source.indexOf('lodash ' + flag) > -1, 'should be built with the ' + flag + ' flag');
 
     filePath = filePath.replace(/\.js$/, '.min.map');
     exists = grunt.file.exists(filePath);
@@ -328,6 +333,7 @@ config.sourceMapFlags.forEach(function(flag, index) {
 
 config.sourceMapShortFlags.forEach(function(flag, index) {
   var testName = 'sourceMapShortFlag' + index;
+  flag = '-' + flag.replace('-', '');
   nodeunit[testName] = function(test) {
     test.expect(3);
 
@@ -338,7 +344,7 @@ config.sourceMapShortFlags.forEach(function(flag, index) {
 
     var source = grunt.file.read(filePath);
 
-    test.ok(source.indexOf('lodash -p') > -1, 'should be built with the source-map flag');
+    test.ok(source.indexOf('lodash ' + flag) > -1, 'should be built with the ' + flag + ' flag');
 
     filePath = filePath.replace(/\.js$/, '.min.map');
     exists = grunt.file.exists(filePath);

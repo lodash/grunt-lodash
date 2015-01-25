@@ -40,38 +40,51 @@ var ignoreFiles = [
   'value'
 ];
 
-var modularizeFiles = [
-  'arrays/',
-  'chaining/',
-  'collections/',
-  'functions/',
-  'internals/',
-  'objects/',
-  'utilities/',
-  'arrays.js',
-  'chaining.js',
-  'collections.js',
-  'functions.js',
-  'objects.js',
-  'support.js',
-  'utilities.js'
-];
+var modularizeFiles = {
+  '2.4.2': [
+    'arrays/',
+    'chaining/',
+    'collections/',
+    'functions/',
+    'internals/',
+    'objects/',
+    'utilities/',
+    'arrays.js',
+    'chaining.js',
+    'collections.js',
+    'functions.js',
+    'objects.js',
+    'support.js',
+    'utilities.js'
+  ],
+  '3.0.0': [
+    'array/',
+    'chain/',
+    'collection/',
+    'date/',
+    'function/',
+    'internal/',
+    'lang/',
+    'number/',
+    'object/',
+    'string/',
+    'utility/',
+    'array.js',
+    'chain.js',
+    'collection.js',
+    'date.js',
+    'function.js',
+    'lang.js',
+    'number.js',
+    'object.js',
+    'string.js',
+    'support.js',
+    'utility.js'
+  ]
+};
 
 var npmModularizeFiles = {
-  '2.0.0': [
-    '_arraypool', '_baseclone', '_basecreatecallback', '_baseeach', '_baseflatten',
-    '_baseindexof', '_baseisequal', '_basemerge', '_baseuniq', '_cacheindexof',
-    '_cachepush', '_charatcallback', '_compareascending', '_createaggregator',
-    '_createbound', '_createcache', '_createiterator', '_createobject',
-    '_defaultsiteratoroptions', '_eachiteratoroptions', '_escapehtmlchar',
-    '_escapestringchar', '_forowniteratoroptions', '_getarray', '_getobject',
-    '_htmlescapes', '_htmlunescapes', '_indicatorobject', '_isnode', '_iteratortemplate',
-    '_keyprefix', '_largearraysize', '_lodashwrapper', '_maxpoolsize', '_noop',
-    '_objectpool', '_objecttypes', '_reescapedhtml', '_reinterpolate', '_releasearray',
-    '_releaseobject', '_renative', '_reunescapedhtml', '_setbinddata', '_shimisplainobject',
-    '_shimkeys', '_slice', '_unescapehtmlchar'
-  ],
-  '2.4.1': [
+  '2.4.2': [
     '_arraypool', '_basebind', '_baseclone', '_basecreate', '_basecreatecallback',
     '_basecreatewrapper', '_basedifference', '_baseeach', '_baseflatten',
     '_baseindexof', '_baseisequal', '_basemerge', '_baserandom', '_baseuniq',
@@ -84,6 +97,19 @@ var npmModularizeFiles = {
     '_maxpoolsize', '_objectpool', '_objecttypes', '_reescapedhtml', '_reinterpolate',
     '_releasearray', '_releaseobject', '_reunescapedhtml', '_setbinddata',
     '_shimisplainobject', '_shimkeys', '_slice', '_unescapehtmlchar'
+  ],
+  '3.0.0': [
+    '_arraycopy', '_arrayeach', '_arrayevery', '_arrayfilter', '_arraymap',
+    '_arraymax', '_arraymin', '_baseassign', '_baseat', '_basecallback', '_baseclone',
+    '_basecompareascending', '_basecopy', '_basecreate', '_basedelay', '_basedifference',
+    '_baseeach', '_baseeachright', '_basefilter', '_basefind', '_baseflatten', '_basefor',
+    '_baseforright', '_basefunctions', '_baseindexof', '_baseisequal', '_baseproperty',
+    '_baserandom', '_basereduce', '_baseslice', '_basesortby', '_basetostring',
+    '_baseuniq', '_basevalues', '_binaryindex', '_binaryindexby', '_bindcallback',
+    '_cacheindexof', '_charsleftindex', '_charsrightindex', '_createaggregator',
+    '_createassigner', '_createcache', '_createcompounder', '_createextremum',
+    '_createpad', '_createwrapper', '_isiterateecall', '_pickbyarray', '_pickbycallback',
+    '_replaceholders', '_toiterable', '_trimmedleftindex', '_trimmedrightindex'
   ]
 };
 
@@ -99,7 +125,14 @@ if (semver.gte(pkg.version, '2.0.0')) {
   // add exposed methods to `npmModularizeFiles`
   (function() {
     var files = npmModularizeFiles[pkg.version],
-        lodash = require(path.join(path.dirname(require.resolve('lodash-cli/package.json')), 'node_modules', 'lodash', 'dist', 'lodash.compat.js'));
+        cli = path.dirname(require.resolve('lodash-cli/package.json')),
+        lodash;
+
+    if (semver.gte(pkg.version, '3.0.0')) {
+      lodash = require(path.join(cli, 'node_modules/lodash-compat/index.js'));
+    } else {
+      lodash = require(path.join(cli, 'node_modules/lodash/dist/lodash.compat.js'));
+    }
 
     lodash(lodash)
       .functions()
@@ -120,10 +153,13 @@ if (semver.gte(pkg.version, '2.0.0')) {
   config.modularize.forEach(function(exp) {
     var testName = 'modularize_' + exp;
     nodeunit[testName] = function(test) {
-      var files = modularizeFiles.concat(
+      var files = modularizeFiles[pkg.version].concat(
         pkg.version == '2.0.0'
           ? 'lodash.js'
-          : (exp == 'amd' ? 'main.js' : 'index.js')
+          : (exp == 'amd'
+              ? 'main.js'
+              : (exp == 'node' ? 'index.js' : 'lodash.js')
+            )
       );
 
       test.expect(files.length);
@@ -144,7 +180,7 @@ if (semver.gte(pkg.version, '2.0.0')) {
   });
 
   nodeunit['modularize_amd_default'] = function(test) {
-    var files = modularizeFiles.concat(
+    var files = modularizeFiles[pkg.version].concat(
       pkg.version == '2.0.0'
         ? 'lodash.js'
         : 'main.js'
