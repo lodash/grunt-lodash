@@ -29,8 +29,8 @@ grunt.initConfig({
       'dest': 'build/lodash.build.js',
       'options': {
         // modifiers for prepared builds
-        // backbone, legacy, modern, mobile, strict, underscore
-        'modifier': 'backbone'
+        // modern, strict, compat
+        'modifier': 'modern'
       }
     }
   }
@@ -40,7 +40,7 @@ grunt.initConfig({
 As you might have guessed, this would produce the same output as:
 
 ```bash
-$ lodash backbone -o build/lodash.build.js
+$ lodash modern -o build/lodash.build.js
 ```
 
 Finally, include the `lodash` invocation in your desired build task:
@@ -64,10 +64,10 @@ For a more in-depth explanation of the build options head on over to the [lodash
   },
   'options': {
     // modifiers for prepared builds
-    // backbone, legacy, modern, mobile, strict, underscore
-    'modifier': 'backbone',
+    // modern, strict, compat
+    'modifier': 'modern',
     'modularize': true,
-    'category': ['collections', 'functions'],
+    'category': ['collection', 'function'],
     'exports': ['amd', 'commonjs', 'node'],
     'iife': '!function(window,undefined){%output%}(this)',
     'include': ['each', 'filter', 'map'],
@@ -81,8 +81,8 @@ For a more in-depth explanation of the build options head on over to the [lodash
     // as the others don't make sense to use here
     'flags': [
       '--stdout',
-      'debug',
-      '--minify',
+      'development',
+      '--production',
       'source-map'
     ],
     // with or without the -
@@ -91,8 +91,8 @@ For a more in-depth explanation of the build options head on over to the [lodash
     'shortFlags': [
       'c',
       '-d',
-      'm',
-      '-p'
+      'p',
+      '-m'
     ]
   }
 }
