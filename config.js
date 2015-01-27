@@ -95,7 +95,7 @@ config.watch = {
 /*----------------------------------------------------------------------------*/
 
 // flags changed between 2.x and 3.0
-// the `underscore`, backbone`, `csp`, `legacy` and `mobile` modifiers were only available before 3.0.0
+// the `backbone`, `csp`, `legacy`, `mobile` and `underscore` modifiers were only available before 3.0.0
 if (semver.lt(pkg.version, '3.0.0')) {
   config.debugFlags = [
     '--debug',
@@ -113,17 +113,17 @@ if (semver.lt(pkg.version, '3.0.0')) {
     '-m',
     'm'
   ];
-  config.modifiers.push(
-    'underscore',
-    'backbone',
-    'csp',
-    'legacy',
-    'mobile'
-  );
   config.sourceMapShortFlags = [
     '-p',
     'p'
   ];
+  config.modifiers.push(
+    'backbone',
+    'csp',
+    'legacy',
+    'mobile',
+    'underscore'
+  );
 }
 
 // flags changed between 2.x and 3.0
@@ -146,12 +146,12 @@ if (semver.gte(pkg.version, '3.0.0')) {
     '-p',
     'p'
   ];
-  config.modifiers.push('compat');
-  config.modularize.push('es');
   config.sourceMapShortFlags = [
     '-m',
     'm'
   ];
+  config.modifiers.push('compat');
+  config.modularize.push('es');
 }
 
 /*----------------------------------------------------------------------------*/
