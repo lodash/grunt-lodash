@@ -113,10 +113,6 @@ if (semver.lt(pkg.version, '3.0.0')) {
     '-m',
     'm'
   ];
-  config.sourceMapShortFlags = [
-    '-p',
-    'p'
-  ];
   config.modifiers.push(
     'underscore',
     'backbone',
@@ -124,6 +120,10 @@ if (semver.lt(pkg.version, '3.0.0')) {
     'legacy',
     'mobile'
   );
+  config.sourceMapShortFlags = [
+    '-p',
+    'p'
+  ];
 }
 
 // flags changed between 2.x and 3.0
@@ -146,12 +146,12 @@ if (semver.gte(pkg.version, '3.0.0')) {
     '-p',
     'p'
   ];
+  config.modifiers.push('compat');
+  config.modularize.push('es');
   config.sourceMapShortFlags = [
     '-m',
     'm'
   ];
-  config.modifiers.push('compat');
-  config.modularize.push('es');
 }
 
 /*----------------------------------------------------------------------------*/
