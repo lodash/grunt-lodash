@@ -99,18 +99,18 @@ var npmModularizeFiles = {
     '_shimisplainobject', '_shimkeys', '_slice', '_unescapehtmlchar'
   ],
   '3.0.0': [
-    '_arraycopy', '_cacheindexof', '_arrayeach', '_charsleftindex', '_arrayevery',
-    '_charsrightindex', '_arrayfilter', '_createaggregator', '_arraymap',
-    '_createassigner', '_arraymax', '_createcache', '_arraymin', '_createcompounder',
-    '_baseassign', '_createextremum', '_baseat', '_createpad', '_basecallback',
-    '_createwrapper', '_baseclone', '_ishostobject', '_basecompareascending',
-    '_isiterateecall', '_basecopy', '_pickbyarray', '_basecreate', '_pickbycallback',
-    '_basedelay', '_replaceholders', '_basedifference', '_toiterable', '_baseeach',
-    '_trimmedleftindex', '_baseeachright', '_trimmedrightindex', '_basefilter',
-    '_basefind', '_baseflatten', '_basefor', '_baseforright', '_basefunctions',
-    '_baseindexof', '_baseisequal', '_baseismatch', '_basematches', '_baseproperty',
-    '_baserandom', '_basereduce', '_baseslice', '_basesortby', '_basetostring',
-    '_baseuniq', '_basevalues', '_binaryindex', '_binaryindexby', '_bindcallback'
+    '_arraycopy', '_arrayeach', '_arrayevery', '_arrayfilter', '_arraymap',
+    '_arraymax', '_arraymin', '_baseassign', '_baseat', '_basecallback', '_baseclone',
+    '_basecompareascending', '_basecopy', '_basecreate', '_basedelay', '_basedifference',
+    '_baseeach', '_baseeachright', '_basefilter', '_basefind', '_baseflatten', '_basefor',
+    '_baseforright', '_basefunctions', '_baseindexof', '_baseisequal', '_baseismatch',
+    '_basematches', '_baseproperty', '_baserandom', '_basereduce', '_baseslice',
+    '_basesortby', '_basetostring', '_baseuniq', '_basevalues', '_binaryindex',
+    '_binaryindexby', '_bindcallback', '_cacheindexof', '_charsleftindex',
+    '_charsrightindex', '_createaggregator', '_createassigner', '_createcache',
+    '_createcompounder', '_createextremum', '_createpad', '_createwrapper', '_ishostobject',
+    '_isiterateecall', '_pickbyarray', '_pickbycallback', '_replaceholders', '_toiterable',
+    '_trimmedleftindex', '_trimmedrightindex'
   ]
 };
 
