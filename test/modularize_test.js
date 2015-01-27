@@ -103,14 +103,13 @@ var npmModularizeFiles = {
     '_arraymax', '_arraymin', '_baseassign', '_baseat', '_basecallback', '_baseclone',
     '_basecompareascending', '_basecopy', '_basecreate', '_basedelay', '_basedifference',
     '_baseeach', '_baseeachright', '_basefilter', '_basefind', '_baseflatten', '_basefor',
-    '_baseforright', '_basefunctions', '_baseindexof', '_baseisequal', '_baseismatch',
-    '_basematches', '_baseproperty', '_baserandom', '_basereduce', '_baseslice',
-    '_basesortby', '_basetostring', '_baseuniq', '_basevalues', '_binaryindex',
-    '_binaryindexby', '_bindcallback', '_cacheindexof', '_charsleftindex',
-    '_charsrightindex', '_createaggregator', '_createassigner', '_createcache',
-    '_createcompounder', '_createextremum', '_createpad', '_createwrapper', '_ishostobject',
-    '_isiterateecall', '_pickbyarray', '_pickbycallback', '_replaceholders', '_toiterable',
-    '_trimmedleftindex', '_trimmedrightindex'
+    '_baseforright', '_basefunctions', '_baseindexof', '_baseisequal', '_baseproperty',
+    '_baserandom', '_basereduce', '_baseslice', '_basesortby', '_basetostring',
+    '_baseuniq', '_basevalues', '_binaryindex', '_binaryindexby', '_bindcallback',
+    '_cacheindexof', '_charsleftindex', '_charsrightindex', '_createaggregator',
+    '_createassigner', '_createcache', '_createcompounder', '_createextremum',
+    '_createpad', '_createwrapper', '_isiterateecall', '_pickbyarray', '_pickbycallback',
+    '_replaceholders', '_toiterable', '_trimmedleftindex', '_trimmedrightindex'
   ]
 };
 
