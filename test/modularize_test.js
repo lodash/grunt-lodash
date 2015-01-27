@@ -130,7 +130,7 @@ if (semver.gte(pkg.version, '2.0.0')) {
         lodash;
 
     if (semver.gte(pkg.version, '3.0.0')) {
-      lodash = require(path.join(cli, 'node_modules/lodash-compat/lodash.js'));
+      lodash = require(path.join(cli, 'node_modules/lodash-compat/index.js'));
     } else {
       lodash = require(path.join(cli, 'node_modules/lodash/dist/lodash.compat.js'));
     }
