@@ -1,6 +1,6 @@
 {
   "name": "grunt-lodash",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A Grunt wrapper around lodash-cli.",
   "homepage": "https://github.com/lodash/grunt-lodash",
   "license": "MIT",
