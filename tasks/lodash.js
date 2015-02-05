@@ -49,8 +49,8 @@ module.exports = function(grunt) {
     }
     spawnArgs = spawnArgs.concat(args, flags, shortFlags, '--output', this.files[0].dest);
 
-    grunt.verbose.writeln('lodash CLI Version: ' + pkg.version);
-    grunt.verbose.writeln('Build Arguments: ' + spawnArgs.slice(1).join(' '));
+    grunt.verbose.writeln('lodash-cli version: ' + pkg.version);
+    grunt.verbose.writeln('Build arguments: ' + spawnArgs.slice(1).join(' '));
 
     grunt.util.spawn({
       'cmd': 'node',
