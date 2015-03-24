@@ -6,7 +6,9 @@ Please make sure to [search the issue tracker](https://github.com/lodash/grunt-l
 ## Tests
 
 Include updated unit tests in the `test` directory as part of your pull request.
-You can run the tests from the command line via `npm test`.
+
+Before running the unit tests you’ll need to install, `npm i`, [development dependencies](https://docs.npmjs.com/files/package.json#devdependencies).
+Run unit tests from the command-line via `node test/test`.
 
 ## Contributor License Agreement
 
