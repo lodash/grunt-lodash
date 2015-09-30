@@ -13,6 +13,8 @@ module.exports = function(grunt) {
     return _.contains(customOptions, key);
   });
 
+  var push = Array.prototype.push;
+
   /*--------------------------------------------------------------------------*/
 
   /** Register the task with Grunt */
@@ -45,7 +47,7 @@ module.exports = function(grunt) {
       spawnArgs.push('modularize');
     }
     if (options.modifier) {
-      spawnArgs.push(options.modifier);
+      push.apply(spawnArgs, [].concat(options.modifier));
     }
     spawnArgs = spawnArgs.concat(args, flags, shortFlags, '--output', this.files[0].dest);
 
