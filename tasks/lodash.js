@@ -45,7 +45,11 @@ module.exports = function(grunt) {
       spawnArgs.push('modularize');
     }
     if (options.modifier) {
-      spawnArgs.push(options.modifier);
+      if (_.isArray(options.modifier)) {
+        spawnArgs.push.apply(spawnArgs, options.modifier);
+      } else {
+        spawnArgs.push(options.modifier);
+      }
     }
     spawnArgs = spawnArgs.concat(args, flags, shortFlags, '--output', this.files[0].dest);
 

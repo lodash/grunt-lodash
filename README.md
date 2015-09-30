@@ -65,7 +65,7 @@ For a more in-depth explanation of the build options head on over to the [lodash
   'options': {
     // modifiers for prepared builds
     // modern, strict, compat
-    'modifier': 'modern',
+    'modifier': 'modern', // also accepts an array to allow combination with 'strict'
     'modularize': true,
     'category': ['collection', 'function'],
     'exports': ['amd', 'commonjs', 'node'],
