@@ -15,7 +15,9 @@
     "Sebastian Golasch <public@asciidisco.com> (http://asciidisco.com/)"
   ],
   "repository": "lodash/grunt-lodash",
-  "scripts": { "test": "grunt travis --verbose" },
+  "scripts": {
+    "test": "grunt travis --verbose"
+  },
   "engines": {
     "node": ">=0.8.19"
   },
@@ -30,7 +32,7 @@
     "grunt-contrib-nodeunit": "~0.4.0",
     "grunt-contrib-watch": "~0.6.0",
     "lodash-cli": ">=1.3.1",
-    "semver": "~4.2.0"
+    "semver": "~5.0.3"
   },
   "peerDependencies": {
     "lodash-cli": ">=1.3.1"
