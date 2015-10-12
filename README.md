@@ -1,4 +1,4 @@
-# grunt-lodash v0.4.0
+# grunt-lodash v0.5.0
 
 A Grunt wrapper around the [lodash](https://lodash.com/) command-line interface, [lodash-cli](https://npmjs.org/package/lodash-cli).
 
