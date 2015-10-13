@@ -1,7 +1,6 @@
 'use strict';
 
-var _ = require('lodash'),
-    semver = require('semver');
+var semver = require('semver');
 
 var pkg = require('lodash-cli/package.json');
 
